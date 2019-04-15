@@ -3,22 +3,9 @@
 <%
 	String color = request.getParameter("color");
 	out.println(color);
-	if(color.equals("blue")) {
 %>		
 		<style>
 			body {
-				background: blue;
+				background: <%=color%>;
 			}
 		</style>
-<%		
-	} else if(color.equals("red")) {
-		%>		
-		<style>
-			body {
-				background: red;
-			}
-		</style>
-<%		
-
-	}
-%>
