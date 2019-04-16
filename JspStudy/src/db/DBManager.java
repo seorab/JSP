@@ -24,7 +24,8 @@ public class DBManager {
 	}
 
 	public Connection open() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
+//		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("core.log.jdbc.driver.MysqlDriver");
 		con = DriverManager.getConnection(url, id, pw);
 		return con;
 	}
