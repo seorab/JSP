@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JdbcTest {
+public class JdbcTest2 {
 	public static void main(String[] args) {
 		try {
 			// 1. 라이브러리를 메모리 등록
@@ -18,16 +18,13 @@ public class JdbcTest {
 			Connection con = DriverManager.getConnection(url, id, pw);
 			
 			// 3. Query 실행 준비
-			String sql = "select id, name from test";
+			String sql = "insert into test (id, name) values ";
+			sql += "    (null, ?)";
 			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, "python");
 			
 			// 4. Query 실행
-			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
-				int id2 = rs.getInt("id");
-				String name = rs.getString("name");
-				System.out.println(id2 + "  " + name);
-			}
+			stmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
